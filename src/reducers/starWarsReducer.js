@@ -5,7 +5,7 @@ FETCH_STARWARS_FAILURE}
 from "../actions";
 
 const initialState = {
-  characters: null,
+  characters: [],
   error: '',
   isFetching: false
 };
@@ -28,6 +28,10 @@ export const charsReducer = (state = initialState, action) => {
         characters: action.payload
       };
     case FETCH_STARWARS_FAILURE:
+    return {
+      ...state,
+      loading: false
+    }
     // Fill me in with the important reducers
     // action types should be FETCHING, SUCCESS and FAILURE
     // your switch statement should handle all of these cases.
